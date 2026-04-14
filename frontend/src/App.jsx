@@ -5,6 +5,7 @@ import MenuSection from "./components/MenuSection";
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [showOrderSuccess, setShowOrderSuccess] = useState(false);
 
   const cartCount = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
@@ -75,9 +76,9 @@ function App() {
 
       setCartItems([]);
       setIsCartOpen(false);
-      window.alert("Siparişiniz başarıyla oluşturuldu.");
+      setShowOrderSuccess(true);
     } catch (checkoutError) {
-      window.alert("Sipariş tamamlanamadı. Lütfen tekrar deneyin.");
+      console.error(checkoutError);
     }
   }
 
@@ -93,13 +94,22 @@ function App() {
           </div>
 
           <div className="hidden items-center gap-8 md:flex">
-            <a className="border-b-2 border-[#f2ca50] pb-1 text-[#f2ca50]" href="#ana-sayfa">
+            <a
+              className="border-b-2 border-[#f2ca50] pb-1 text-[#f2ca50]"
+              href="#ana-sayfa"
+            >
               Ana Sayfa
             </a>
-            <a className="text-[#ffb780]/80 transition-colors duration-300 hover:text-[#f2ca50]" href="#menu">
+            <a
+              className="text-[#ffb780]/80 transition-colors duration-300 hover:text-[#f2ca50]"
+              href="#menu"
+            >
               Menu
             </a>
-            <a className="text-[#ffb780]/80 transition-colors duration-300 hover:text-[#f2ca50]" href="#hikaye">
+            <a
+              className="text-[#ffb780]/80 transition-colors duration-300 hover:text-[#f2ca50]"
+              href="#hikaye"
+            >
               Hakkımızda
             </a>
           </div>
@@ -146,7 +156,8 @@ function App() {
             </h1>
 
             <p className="mx-auto max-w-2xl font-body text-xl italic text-on-surface-variant md:text-2xl">
-              Büyülü içecekler ve Büyük Salon lezzetleri burada, tarihin ve efsanelerin kalbinde sizi bekliyor.
+              Büyülü içecekler ve Büyük Salon lezzetleri burada, tarihin ve
+              efsanelerin kalbinde sizi bekliyor.
             </p>
 
             <div className="pt-6">
@@ -162,7 +173,10 @@ function App() {
 
         <MenuSection addToCart={addToCart} />
 
-        <section id="hikaye" className="relative overflow-hidden bg-surface-container-lowest/50 py-24">
+        <section
+          id="hikaye"
+          className="relative overflow-hidden bg-surface-container-lowest/50 py-24"
+        >
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-8 md:flex-row">
             <div className="relative w-full md:w-1/2">
               <div className="asymmetric-offset overflow-hidden rounded-xl border border-primary/20 shadow-2xl">
@@ -175,37 +189,53 @@ function App() {
 
               <div className="absolute -bottom-10 -right-10 flex h-40 w-40 items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse" />
-                <svg className="h-full w-full animate-[spin_10s_linear_infinite] fill-primary" viewBox="0 0 100 100">
+                <svg
+                  className="h-full w-full animate-[spin_10s_linear_infinite] fill-primary"
+                  viewBox="0 0 100 100"
+                >
                   <path
                     id="circlePath"
                     d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                     fill="transparent"
                   />
                   <text className="text-[10px] font-bold uppercase tracking-widest">
-                    <textPath href="#circlePath">HogsMade Cafe • Büyülü Lezzetler • 1997 •</textPath>
+                    <textPath href="#circlePath">
+                      HogsMade Cafe • Büyülü Lezzetler • 1997 •
+                    </textPath>
                   </text>
                 </svg>
-                <span className="material-symbols-outlined absolute text-3xl text-primary">verified</span>
+                <span className="material-symbols-outlined absolute text-3xl text-primary">
+                  verified
+                </span>
               </div>
             </div>
 
             <div className="w-full space-y-6 md:w-1/2">
-              <h2 className="font-headline text-4xl text-primary-fixed">Kadim Bir Gelenek</h2>
+              <h2 className="font-headline text-4xl text-primary-fixed">
+                Kadim Bir Gelenek
+              </h2>
               <p className="font-body text-xl leading-loose text-on-surface">
-                Kafemiz, sihrin mutfakla buluştuğu bir tapınaktır. Kullandığımız her malzeme, Diagon
-                Yolu&apos;nun en seçkin dükkanlarından ve büyücülük dünyasının en güvenilir tariflerinden gelir.
+                Kafemiz, sihrin mutfakla buluştuğu bir tapınaktır. Kullandığımız
+                her malzeme, Diagon Yolu&apos;nun en seçkin dükkanlarından ve
+                büyücülük dünyasının en güvenilir tariflerinden gelir.
               </p>
               <ul className="space-y-4 font-label text-secondary">
                 <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-xl text-primary">check_circle</span>
+                  <span className="material-symbols-outlined text-xl text-primary">
+                    check_circle
+                  </span>
                   Günlük taze pişirilen baykuş postası atıştırmalıkları
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-xl text-primary">check_circle</span>
+                  <span className="material-symbols-outlined text-xl text-primary">
+                    check_circle
+                  </span>
                   Sınırsız kaymakbirası teklifleri
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-xl text-primary">check_circle</span>
+                  <span className="material-symbols-outlined text-xl text-primary">
+                    check_circle
+                  </span>
                   Ev cini onaylı reçeteler
                 </li>
               </ul>
@@ -217,12 +247,20 @@ function App() {
       <footer className="w-full border-t border-[#d4af37]/10 bg-[#1a0a07]">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-8 py-8 text-center font-body text-sm italic md:flex-row md:text-left">
           <div className="flex items-center gap-4">
-            <span className="font-headline text-lg font-bold text-[#f2ca50]">HogsMade Cafe</span>
-            <span className="text-[#ffb780]/60">© 2026 HogsMade Cafe. Sihirle hazırlanmıştır.</span>
+            <span className="font-headline text-lg font-bold text-[#f2ca50]">
+              HogsMade Cafe
+            </span>
+            <span className="text-[#ffb780]/60">
+              © 2026 HogsMade Cafe. Sihirle hazırlanmıştır.
+            </span>
           </div>
           <div className="flex gap-4 text-[#ffb780]/60">
-            <span className="material-symbols-outlined text-[#f2ca50]/40">auto_awesome</span>
-            <span className="material-symbols-outlined text-[#f2ca50]/40">castle</span>
+            <span className="material-symbols-outlined text-[#f2ca50]/40">
+              auto_awesome
+            </span>
+            <span className="material-symbols-outlined text-[#f2ca50]/40">
+              castle
+            </span>
           </div>
         </div>
       </footer>
@@ -235,6 +273,29 @@ function App() {
           removeFromCart={removeFromCart}
           updateQuantity={updateQuantity}
         />
+      ) : null}
+
+      {showOrderSuccess ? (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 px-6 backdrop-blur-md">
+          <div className="w-full max-w-md rounded-2xl border border-[#d4af37] bg-[#210e0a] p-8 text-center shadow-[0_0_40px_rgba(0,0,0,0.75)]">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#d4af37]/40 bg-[#2d1611] text-3xl shadow-[0_0_18px_rgba(212,175,55,0.2)]">
+              🦉
+            </div>
+            <h3 className="font-headline text-3xl text-[#f2ca50]">
+              Siparişiniz Sihirle Alındı! 🦉
+            </h3>
+            <p className="mt-3 font-body text-lg italic text-[#ffb780]/80">
+              Baykuşlarımız en kısa sürede yola çıkacak.
+            </p>
+            <button
+              className="mt-8 inline-flex items-center justify-center rounded-xl border border-[#d4af37]/40 bg-[#d4af37] px-8 py-3 font-label text-sm font-bold uppercase tracking-[0.22em] text-[#3c2f00] shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:bg-[#f2ca50] hover:shadow-[0_0_28px_rgba(212,175,55,0.45)]"
+              onClick={() => setShowOrderSuccess(false)}
+              type="button"
+            >
+              Kapat
+            </button>
+          </div>
+        </div>
       ) : null}
     </div>
   );
