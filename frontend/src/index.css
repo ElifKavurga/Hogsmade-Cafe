@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #210e0a;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.tonal-shift-low {
+  background: linear-gradient(180deg, rgba(33, 14, 10, 0.95) 0%, rgba(42, 22, 18, 0.95) 100%);
+}
+
+.grain-texture {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(242, 202, 80, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(255, 183, 128, 0.07), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(255, 218, 210, 0.03), transparent 35%);
+  opacity: 0.25;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 25px rgba(242, 202, 80, 0.2);
+}
+
+.asymmetric-offset {
+  transform: rotate(-1deg) translateY(5px);
+}

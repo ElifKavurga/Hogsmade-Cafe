@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Newsreader:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#210e0a",
+                    "surface-bright": "#4b332e",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "on-surface": "#ffdad2",
+                    "on-tertiary-fixed": "#211b05",
+                    "secondary": "#ffb780",
+                    "on-secondary-fixed": "#2f1400",
+                    "surface-container-low": "#2a1612",
+                    "on-tertiary": "#373018",
+                    "tertiary-container": "#beb291",
+                    "on-primary-fixed": "#241a00",
+                    "tertiary-fixed": "#efe2be",
+                    "surface-container": "#2f1a15",
+                    "inverse-surface": "#ffdad2",
+                    "secondary-fixed": "#ffdcc4",
+                    "inverse-on-surface": "#412b25",
+                    "on-surface-variant": "#d0c5af",
+                    "primary-fixed": "#ffe088",
+                    "background": "#210e0a",
+                    "primary-container": "#d4af37",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#462f29",
+                    "outline-variant": "#4d4635",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-primary": "#3c2f00",
+                    "surface-tint": "#e9c349",
+                    "on-background": "#ffdad2",
+                    "tertiary": "#daceab",
+                    "surface-container-lowest": "#1b0906",
+                    "primary-fixed-dim": "#e9c349",
+                    "secondary-container": "#7c4001",
+                    "primary": "#f2ca50",
+                    "on-tertiary-container": "#4c452a",
+                    "surface-container-high": "#3a251f",
+                    "on-primary-container": "#554300",
+                    "outline": "#99907c",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#ffb780",
+                    "inverse-primary": "#735c00",
+                    "on-secondary-container": "#ffb275",
+                    "surface-container-highest": "#462f29",
+                    "tertiary-fixed-dim": "#d2c6a3",
+                    "on-secondary": "#4e2600",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-tertiary-fixed-variant": "#4e462c",
+                    "surface-dim": "#210e0a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Newsreader"],
+                    "label": ["Work Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>body {
+    background-color: #210e0a;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuD_RD7ynMTWWoXqPwKN21YFQPCoqeD8VKcBigp-kmouZXW-ChTSJz92mYFEcvAelmVkOE9wbcrKfFa-mWsj7MDAtktYn1E4c_ZJPF3QEGfjPChQxDN-kq-b1FDTHHTA0clpdjb2vllT6r7mVcoJ2S_tlQk4jbuHDWtlVRFKeu-f-4_Z1IEsx3odCAP2h-oGJlzRQe0UjQ6LwHoS-TQBtzwC27N8Hg3rqxMP7i0GMHihvbvM-RZQr1UpJpi35qe5QjXfiEygxYKM4mdU)
+    }
+.parchment-overlay {
+    background-image: radial-gradient(circle at center, rgba(244, 231, 195, 0.05) 0%, transparent 70%);
+    pointer-events: none
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.card-glow:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15)
+    }</style>
+</head>
+<body class="font-body text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#210e0a]/90 backdrop-blur-xl border-b border-[#d4af37]/15 shadow-2xl shadow-black/50 flex justify-between items-center px-8 h-20 w-full max-w-none">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-bold text-[#f2ca50] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] font-['Noto_Serif'] tracking-wide">HogsMade Cafe</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-['Noto_Serif'] tracking-wide">
+<a class="text-[#ffb780]/70 hover:text-[#f2ca50] transition-colors duration-300" href="#">Asa Seçimi</a>
+<a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="#">Büyülü İçecekler</a>
+<a class="text-[#ffb780]/70 hover:text-[#f2ca50] transition-colors duration-300" href="#">Kazan Yemekleri</a>
+<a class="text-[#ffb780]/70 hover:text-[#f2ca50] transition-colors duration-300" href="#">Tatlı Sırlar</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-[#f2ca50] p-2 hover:bg-[#d4af37]/10 rounded-full">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+</nav>
+<main class="relative pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+<div class="parchment-overlay absolute inset-0 z-0"></div>
+<!-- Header Section -->
+<header class="relative z-10 text-center mb-16">
+<h1 class="font-headline text-5xl md:text-6xl text-primary drop-shadow-[0_0_12px_rgba(242,202,80,0.3)] mb-4">Sihirli Menümüz</h1>
+<p class="font-body italic text-xl text-on-surface-variant max-w-2xl mx-auto">
+                Baykuş postasıyla gelen en taze malzemeler ve kadim büyülerle hazırlanan lezzet keşfine hoş geldiniz.
+            </p>
+</header>
+<!-- Category Filters -->
+<div class="relative z-10 flex flex-wrap justify-center gap-4 mb-16">
+<button class="px-8 py-2 rounded-full font-label text-sm font-semibold tracking-wider transition-all duration-300 bg-primary text-on-primary shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                Tümü
+            </button>
+<button class="px-8 py-2 rounded-full font-label text-sm font-semibold tracking-wider transition-all duration-300 bg-surface-container-high text-on-surface hover:bg-primary-container/20 border border-outline-variant/30">
+                Büyülü İçecekler
+            </button>
+<button class="px-8 py-2 rounded-full font-label text-sm font-semibold tracking-wider transition-all duration-300 bg-surface-container-high text-on-surface hover:bg-primary-container/20 border border-outline-variant/30">
+                Atıştırmalıklar
+            </button>
+<button class="px-8 py-2 rounded-full font-label text-sm font-semibold tracking-wider transition-all duration-300 bg-surface-container-high text-on-surface hover:bg-primary-container/20 border border-outline-variant/30">
+                Tatlılar
+            </button>
+</div>
+<!-- Menu Grid -->
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1: Patronus Kahvesi -->
+<div class="group flex flex-col bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 card-glow transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Patronus Kahvesi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of a steaming dark espresso in a rustic ceramic cup with ethereal blue glowing wisps emerging from the steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3G30ymlvXRUSt8gNuplgdfvwscxuNgUiDil77aYjlUTpcWlBiQo3o5qFUvv8i12bM8u1wprMtLolHs-Paynzx4KjzsCG8--7mylkrmoBtRi8Fwp6Mo2o--3Ot3aP5_9xp2gwzuaOZOwvss9BJ6faLc62RRX9BQE_aEa3l3c3_iZW-vgTEp-xujT0HTCEJKvxQdC1OW_CxgEa05SJTyy9JM8BWKzY7ZhjucBdTs4D-N1hlhwritLbYOoQ8c1Manx1B1hdGXRxkN6cl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl text-primary mb-2">Patronus Kahvesi</h3>
+<p class="font-body text-on-surface-variant leading-relaxed flex-grow">Ruh emicileri uzak tutan, en karanlık ormanlardan toplanmış çekirdeklerle hazırlanan sert espresso.</p>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-headline text-xl text-secondary">85 TL</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-on-primary transition-all duration-300 rounded-lg group/btn">
+<span class="font-label text-xs font-bold uppercase tracking-widest">Sepete Ekle</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:rotate-45 transition-transform" data-icon="auto_fix">auto_fix</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Kaymak Birası -->
+<div class="group flex flex-col bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 card-glow transition-all duration-500 hover:-translate-y-2 translate-y-4">
+<div class="relative h-64 overflow-hidden">
+<img alt="Sıcak Kaymak Birası" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Large rustic glass mug filled with frothy golden butterbeer with a thick creamy foam top on a dark wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd41ixR8jZ_LoAX0sf6nG31oyCglI6BFi8Fmq_wWdgpPww-WGjgqJr9TwZHtgxxpLTy5L1SiK7UF2Xj_zYtcAM5Bd94PZ5wsI3NWkaELVA7bzNIMHZKrNqX1JyVNOw3trsjJm9RDObrjbeNJyGHJLMGrNTgJjWmYEwg66dQ3-_gAmwOjxw7h2aZF2kiLISoPUw6vS44Hd0CQDSa-d7llZ469lmWCrDfRwUkDjZYd5igXidWWQQwn-SMTnv7v6fx0BwcKUdpYSJy_MM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute top-4 right-4 bg-primary text-on-primary rounded-full w-12 h-12 flex items-center justify-center font-bold shadow-lg transform rotate-12">
+<span class="text-xs">Yeni</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl text-primary mb-2">Sıcak Kaymak Birası</h3>
+<p class="font-body text-on-surface-variant leading-relaxed flex-grow">Karamel ve tereyağı notalarının büyüleyici uyumuyla hazırlanan, içini ısıtacak efsanevi içecek.</p>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-headline text-xl text-secondary">110 TL</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-on-primary transition-all duration-300 rounded-lg group/btn">
+<span class="font-label text-xs font-bold uppercase tracking-widest">Sepete Ekle</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:rotate-45 transition-transform" data-icon="auto_fix">auto_fix</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Ateş Kadehi Tatlısı -->
+<div class="group flex flex-col bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 card-glow transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Ateş Kadehi Tatlısı" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Elegant glass bowl containing a rich chocolate lava cake with a blue flame edible decoration on top and gold leaf sprinkles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkyEvyJvgMImUCYuL28fa1auLT9cNuWawnCuqkb-13etylaCaKVn_ImLntDXt9-8-0SNx_9M4XzsdgWNx5_YcUt-iO4krwhKWt5dJrZ_HgjzIFQjUI11_KETsfyjUXXizGDEHoQ7Nvg3TBGk-kwdD9-Wpz8DHujdJSrSPBZXpiU68g_aghuYQ-P2dzuMRDNX4ONvOYhcPRS0ep69KvpPvZJG9UhO-c-u0WucBqz8Wm6HLsZPZMDFz5yxmAQSI_df2cIxmkdzET673S"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl text-primary mb-2">Ateş Kadehi Tatlısı</h3>
+<p class="font-body text-on-surface-variant leading-relaxed flex-grow">Sıcak çikolata şelalesi ve üzerinde parıldayan yenilebilir mavi büyü aleviyle eşsiz bir son.</p>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-headline text-xl text-secondary">145 TL</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-on-primary transition-all duration-300 rounded-lg group/btn">
+<span class="font-label text-xs font-bold uppercase tracking-widest">Sepete Ekle</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:rotate-45 transition-transform" data-icon="auto_fix">auto_fix</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Mandrake Keki -->
+<div class="group flex flex-col bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 card-glow transition-all duration-500 hover:-translate-y-2 -translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Mandrake Keki" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Miniature potted plant styled chocolate cupcake with green leaf decorations and dark cookie crumble soil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxa6h4H9XDj9v6TijpfVxSm3yydlfhy7xDiS8ldx_tEnFIQHIGKSo2BwQCwS6QiO5cbrqi-eaxRKfgYDVnHjkJQbQyoKhSeQnQiU5iiEtx6RV-IaAYc7aE82xBXflOhJvg8ZWcnm-Y0iOCMsru6GrU6AorEqoYmDDnUmewUSe94iAoDr3d4uuesMzzk1Qzikyv9NBa1oS49qjqyxl_F6g5rPVZfNXXsds-smefvK_F59d1eUxltzMjy19px0v74g2SXHmV5PIm-tNv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl text-primary mb-2">Mandrake Keki</h3>
+<p class="font-body text-on-surface-variant leading-relaxed flex-grow">Karanlık toprak görünümlü kakaolu kek ve kök şeklinde sakızlı şekerleme. Çığlık atmaz, söz veriyoruz.</p>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-headline text-xl text-secondary">95 TL</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-on-primary transition-all duration-300 rounded-lg group/btn">
+<span class="font-label text-xs font-bold uppercase tracking-widest">Sepete Ekle</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:rotate-45 transition-transform" data-icon="auto_fix">auto_fix</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Şahgaga Atıştırmalığı -->
+<div class="group flex flex-col bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 card-glow transition-all duration-500 hover:-translate-y-2 translate-y-6">
+<div class="relative h-64 overflow-hidden">
+<img alt="Şahgaga Atıştırmalığı" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Assorted gourmet cheese and dried fruit platter on a dark slate board with wild berries and honeycomb" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs4-VVSwDgSxO1MN27AhgF5lsIKGql0PJ7qNdap9fyQGAdFAWR5_1PTvwY3dkulVdk_N8DB1eRNXjAc3RerRe-KCBP95ZUYdgqj5K4R97ZxLTxyaC-JDWK8PoWetGgkq9KWmKRdn0DiXnuaJhKtVleUSvbvLJxY9ep8aq7Npp79bd1sAYEYa-LFwhvdNBo__EBWEQ-U4eDPNT_9rpkSBTH9OMjIYfsvTssS9AhmGcdCksC_c9vTIgb4v870zIvKPpjn3gPB-o6gcHB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl text-primary mb-2">Şahgaga Atıştırmalığı</h3>
+<p class="font-body text-on-surface-variant leading-relaxed flex-grow">Saygıyla eğilerek tadına bakmanız gereken, seçkin peynirler ve kurutulmuş meyve tabağı.</p>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-headline text-xl text-secondary">160 TL</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-on-primary transition-all duration-300 rounded-lg group/btn">
+<span class="font-label text-xs font-bold uppercase tracking-widest">Sepete Ekle</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:rotate-45 transition-transform" data-icon="auto_fix">auto_fix</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Altın Snitch Turtası -->
+<div class="group flex flex-col bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant/10 card-glow transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img alt="Altın Snitch Turtası" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Golden glazed small round tart with thin white chocolate wings on sides, placed on a decorative antique gold plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwJkQbxXJ_T2Jw6bNASJRPSLlbma-U8TXtTsYFY1bcKWRG4Rn70WZ50BRlanHxNXh-6ZfhH9E0NgLE9zr6DSyNx_0tB4ukgUqdMfETfilhKK90OVa0CrrG15MQApoYA64lZSasGX5yvLxqURWjPZmgdR1NvAoj8Ja1llvsGDAQISShhSOsqbbbJhWT-8HwflYlB-TR4wRhY8Xa_oGpN5iA2slNE74G5bFRPKgk0KWZQpnSZTAmcm9-irR-GMqM5wJmOrm-sWccc5Ul"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl text-primary mb-2">Altın Snitch Turtası</h3>
+<p class="font-body text-on-surface-variant leading-relaxed flex-grow">Yakalayana 150 puan kazandıran, bal kabağı ve altın varaklı narin bir turta.</p>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-headline text-xl text-secondary">125 TL</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary text-primary hover:text-on-primary transition-all duration-300 rounded-lg group/btn">
+<span class="font-label text-xs font-bold uppercase tracking-widest">Sepete Ekle</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:rotate-45 transition-transform" data-icon="auto_fix">auto_fix</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1a0a07] w-full py-12 px-8 border-t border-[#d4af37]/10 flex flex-col md:flex-row justify-between items-center gap-6 w-full">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-lg font-bold text-[#f2ca50] font-headline tracking-wide">HogsMade Cafe</span>
+<p class="font-['Newsreader'] italic text-sm leading-relaxed text-[#ffb780]/50 text-center md:text-left">
+                © 1997-2024 HogsMade Cafe - Sihrin ve Lezzetin Buluştuğu Nokta
+            </p>
+</div>
+<div class="flex gap-8 font-['Newsreader'] italic text-sm leading-relaxed">
+<a class="text-[#ffb780]/50 hover:text-[#f2ca50] transition-colors duration-300" href="#">Gizlilik Mührü</a>
+<a class="text-[#ffb780]/50 hover:text-[#f2ca50] transition-colors duration-300" href="#">Baykuş Postası</a>
+<a class="text-[#ffb780]/50 hover:text-[#f2ca50] transition-colors duration-300" href="#">Kullanım Parşömeni</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#f2ca50]/40" data-icon="auto_awesome">auto_awesome</span>
+<span class="material-symbols-outlined text-[#f2ca50]/40" data-icon="castle">castle</span>
+</div>
+</footer>
+</body></html>

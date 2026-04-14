@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: hogsmadecafe-postgres
+    environment:
+      POSTGRES_DB: hogsmade_db
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d hogsmade_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - hogsmade-net
+
+  backend:
+    build:
+      context: ./hogsmadecafe
+      dockerfile: Dockerfile
+    container_name: hogsmadecafe-backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hogsmade_db
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SERVER_PORT: 8080
+    ports:
+      - "8081:8080"
+    networks:
+      - hogsmade-net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hogsmadecafe-frontend
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "3000:80"
+    networks:
+      - hogsmade-net
+
+networks:
+  hogsmade-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
