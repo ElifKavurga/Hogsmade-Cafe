@@ -82,7 +82,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:8081/api/orders", {
+      const response = await fetch("https://dollar-platinum-kettle.ngrok-free.dev/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
