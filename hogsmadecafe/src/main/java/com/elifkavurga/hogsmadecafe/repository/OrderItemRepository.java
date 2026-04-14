@@ -1,0 +1,11 @@
+/**
+ * @author Elif Kavurga
+ */
+package com.elifkavurga.hogsmadecafe.repository;
+
+import com.elifkavurga.hogsmadecafe.entity.OrderItem;
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderItemRepository extends JpaRepository<OrderItem, UUID> {
+}

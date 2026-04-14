@@ -1,6 +1,86 @@
+import { useMemo, useState } from "react";
+import CartDrawer from "./components/CartDrawer";
 import MenuSection from "./components/MenuSection";
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const cartCount = useMemo(
+    () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
+    [cartItems],
+  );
+
+  function addToCart(item) {
+    setCartItems((currentItems) => {
+      const existingItem = currentItems.find(
+        (cartItem) => cartItem.id === item.id,
+      );
+
+      if (existingItem) {
+        return currentItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem,
+        );
+      }
+
+      return [...currentItems, { ...item, quantity: 1 }];
+    });
+
+    setIsCartOpen(true);
+  }
+
+  function removeFromCart(itemId) {
+    setCartItems((currentItems) =>
+      currentItems.filter((item) => item.id !== itemId),
+    );
+  }
+
+  function updateQuantity(itemId, nextQuantity) {
+    if (nextQuantity < 1) {
+      removeFromCart(itemId);
+      return;
+    }
+
+    setCartItems((currentItems) =>
+      currentItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: nextQuantity } : item,
+      ),
+    );
+  }
+
+  async function handleCheckout() {
+    if (cartItems.length === 0) {
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8081/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: cartItems.map((item) => ({
+            menuItemId: item.id,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Sipariş oluşturulamadı.");
+      }
+
+      setCartItems([]);
+      setIsCartOpen(false);
+      window.alert("Siparişiniz başarıyla oluşturuldu.");
+    } catch (checkoutError) {
+      window.alert("Sipariş tamamlanamadı. Lütfen tekrar deneyin.");
+    }
+  }
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-surface text-on-surface selection:bg-primary/30 selection:text-primary">
       <div className="pointer-events-none fixed inset-0 z-0 grain-texture" />
@@ -24,8 +104,17 @@ function App() {
             </a>
           </div>
 
-          <button className="rounded-full bg-surface-container-low p-2 text-[#f2ca50] transition-transform duration-300 hover:scale-105">
+          <button
+            className="relative rounded-full bg-surface-container-low p-2 text-[#f2ca50] transition-transform duration-300 hover:scale-105"
+            onClick={() => setIsCartOpen(true)}
+            type="button"
+          >
             <span className="material-symbols-outlined">shopping_cart</span>
+            {cartCount > 0 ? (
+              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-on-primary">
+                {cartCount}
+              </span>
+            ) : null}
           </button>
         </nav>
       </header>
@@ -71,7 +160,7 @@ function App() {
           </div>
         </section>
 
-        <MenuSection />
+        <MenuSection addToCart={addToCart} />
 
         <section id="hikaye" className="relative overflow-hidden bg-surface-container-lowest/50 py-24">
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-8 md:flex-row">
@@ -137,6 +226,16 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {isCartOpen ? (
+        <CartDrawer
+          cartItems={cartItems}
+          checkout={handleCheckout}
+          closeCart={() => setIsCartOpen(false)}
+          removeFromCart={removeFromCart}
+          updateQuantity={updateQuantity}
+        />
+      ) : null}
     </div>
   );
 }

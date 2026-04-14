@@ -16,7 +16,7 @@ const cardOffsetClasses = [
   "",
 ];
 
-function MenuSection() {
+function MenuSection({ addToCart }) {
   const [items, setItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState("Tümü");
   const [loading, setLoading] = useState(true);
@@ -156,7 +156,11 @@ function MenuSection() {
                     <span className="font-headline text-xl text-secondary">
                       {Number(item.price).toFixed(0)} TL
                     </span>
-                    <button className="group/btn flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-primary transition-all duration-300 hover:bg-primary hover:text-on-primary">
+                    <button
+                      className="group/btn flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-primary transition-all duration-300 hover:bg-primary hover:text-on-primary"
+                      onClick={() => addToCart(item)}
+                      type="button"
+                    >
                       <span className="font-label text-xs font-bold uppercase tracking-widest">
                         Sepete Ekle
                       </span>
