@@ -107,8 +107,6 @@ Bu dosyada iki temel tünel bulunur:
 
 ### ngrok.exe Üzerinden Başlatma
 
-Hocaya gösterirken PowerShell veya Komut İstemi açıp aşağıdaki komutu çalıştırmanız yeterlidir:
-
 ```powershell
 ngrok start --all --config="C:\Users\PC\Desktop\Hogsmade-Cafe\Hogsmade Deploy\config.yml"
 ```
