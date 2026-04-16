@@ -29,7 +29,7 @@ Uygulama temel olarak şu akışları destekler:
 Kök dizindeki [`compose.yaml`](compose.yaml) dosyası üç ana servisi birlikte ayağa kaldırır:
 
 - `frontend`: dışarıya `3000` portundan açılır
-- `backend`: container içinde `8080`, dışarıya `8081` portundan açılır
+- `backend`: `8081` portundan servis edilir
 - `postgres`: `5432` portunda çalışır
 
 Frontend imajı kök dizindeki [`Dockerfile`](Dockerfile) ile build edilir ve Nginx üzerinden servis edilir. Backend servisi ise [`hogsmadecafe`](hogsmadecafe) klasöründen build alınarak PostgreSQL'e bağlanır.
@@ -170,3 +170,4 @@ Bu ekran görüntüleri uygulamanın tema yaklaşımını, menü akışını ve 
 </p>
 
 Bu bölümde Jenkins pipeline akışı, Docker üzerinde çalışan servisler ve ngrok ile dış erişim örneği yer alır.
+
