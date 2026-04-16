@@ -169,5 +169,5 @@ Bu ekran görüntüleri uygulamanın tema yaklaşımını, menü akışını ve 
   <img src="gorseller/ngrok.png" alt="ngrok tünel ekranı" width="32%" />
 </p>
 
-Bu bölümde Jenkins pipeline akışı, Docker üzerinde çalışan servisler ve ngrok ile dış erişim örneği yer alır.
+Bu bölümde Jenkins pipeline akışı, Docker üzerinde çalışan servisler ve ngrok ile dış erişim örneği yer alır..
 
